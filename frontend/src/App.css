@@ -1,0 +1,38 @@
+.super-container {
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #646cff;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-container {
+    width: 20%;
+}
+
+.pages-container {
+    width: 60%;
+    min-height: 100vh;
+}
+
+.aside-container {
+    width: 20%;
+}
+
+.f-height {
+    min-height: 100vh;
+}
