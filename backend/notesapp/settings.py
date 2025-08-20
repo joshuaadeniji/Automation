@@ -27,10 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'notes',
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders', # for frontend access
-    'notes',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +87,18 @@ WSGI_APPLICATION = 'notesapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+"""
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "",
+        "USER": "joshuaadeniji",
+        "PASSWORD": "tJosh12345-",
+        "HOST": "joshuaadeniji.mysql.pythonanywhere-services.com",
+        "PORT": "",
+    }
+}
+"""
 
 DATABASES = {
     'default': {
@@ -94,7 +106,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -113,7 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

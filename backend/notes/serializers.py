@@ -5,8 +5,7 @@ from .models import Notes
 class NotesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notes
-        fields = ['id', 'title', 'content', 'created_at', 'edited_at']
-
+        fields = ['id', 'title', 'content', 'completed', 'created_at', 'edited_at']
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:

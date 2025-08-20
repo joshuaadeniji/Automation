@@ -1,14 +1,28 @@
 import './Sidebar.css'
-import { Link } from 'react-router-dom'
-import utilities from "../utils/utilities"
+import { Link, useLocation } from 'react-router-dom'
 
 const Sidebar = () => {
+    const location = useLocation();
 
     return (
         <div className="sidebar">
+            <h3>Navigation</h3>
             <ul>
-                <li className='nav-list'>
-                    <Link to={'/notes'}><button className="notes">Notes</button></Link>
+                <li>
+                    <Link
+                        to="/"
+                        className={location.pathname === '/' ? 'active' : ''}
+                    >
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/notes"
+                        className={location.pathname === '/notes' ? 'active' : ''}
+                    >
+                        Notes
+                    </Link>
                 </li>
             </ul>
         </div>

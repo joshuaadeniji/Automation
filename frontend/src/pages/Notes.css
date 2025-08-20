@@ -1,114 +1,53 @@
-.notes {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: #2d2d2d;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-family: 'Segoe UI', sans-serif;
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-.notes-create-list {
-    margin: 1rem 0;
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-align: center;
-    color: #e0e0e0;
+.note-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-.form {
-    width: 100%;
-    background-color: #1f1f1f;
-    padding: 1.5rem;
-    border-radius: 10px;
+.note-card h4 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
 }
 
-.input-group {
-    width: 100%;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: white;
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
+.note-card p {
+  color: #6c757d;
+  margin-bottom: 1rem;
 }
 
-.note-content {
-    height: 100px;
-    resize: vertical;
+.feature-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  margin: 1rem;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #1f1f1f;
-    border-radius: 10px;
-    overflow: hidden;
+.feature-card:hover {
+  transform: translateY(-5px);
 }
 
-th, td {
-    padding: 1rem;
-    border-bottom: 1px solid #444;
-    text-align: left;
+.feature-card h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
 }
 
-th {
-    background-color: #333;
-    font-weight: bold;
-    color: #ccc;
-}
-
-.edc {
-    display: flex;
-}
-
-tr:hover {
-    background-color: #2a2a2a;
-}
-
-.edit, .delete, .complete {
-    margin-right: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.edit {
-    background-color: #2196f3;
-    color: white;
-}
-
-.edit:hover {
-    background-color: #1976d2;
-}
-
-.delete {
-    background-color: #f44336;
-    color: white;
-}
-
-.delete:hover {
-    background-color: #c62828;
-}
-
-.complete {
-    background-color: #9c27b0;
-    color: white;
-}
-
-.complete:hover {
-    background-color: #7b1fa2;
+.feature-card p {
+  color: #6c757d;
 }

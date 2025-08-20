@@ -1,44 +1,68 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
-import Register from './pages/Register'
-import Navigation from './components/Navigation'
-import Sidebar from './components/Sidebar'
-import Aside from './components/Aside'
 import Home from './pages/Home'
 import Notes from './pages/Notes'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Sidebar from './components/Sidebar'
+import Navigation from './components/Navigation'
+
 import './App.css'
-import NotFound from './pages/NotFound'
+import { AuthProvider } from './utils/AuthContext'
+import ProtectedRoute from './utils/ProtectedRoute';
 
 function App() {
-
-  // const { logout, isAuthenticated } = utilities()
-
   return (
-    <div className="super-container">
+    <AuthProvider>
       <Router>
-        <div className="navigation-container">
-          <Navigation />
-        </div>
-        <div className="main-container">
-          <div className="sidebar-container">
-            <Sidebar />
+        <div className="super-container">
+          <div className="navigation-container">
+            <Navigation />
           </div>
-          <div className="pages-container">
-            <Routes>
-                <Route path='/login' element={ <Login /> }></Route>
-                <Route path='/register' element={ <Register /> }></Route>
-                <Route path='/' element={ <Home /> }></Route>
-                <Route path='/notes' element={ <Notes /> }></Route>
-                <Route path='/*' element={ <NotFound /> }></Route>
-            </Routes>
-          </div>
-          <div className="aside-container">
-            <Aside />
-          </div>
+          <Routes>
+            {/* Public route */}
+            <Route path="/login" element={<Login />} />
+
+            {/* Protected routes */}
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <div className="main-container">
+                    <div className="sidebar-container">
+                      <Sidebar />
+                    </div>
+                    <div className="pages-container">
+                      <Home />
+                    </div>
+                    <div className="aside-container">
+                      {/* Additional content can go here */}
+                    </div>
+                  </div>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/notes"
+              element={
+                <ProtectedRoute>
+                  <div className="main-container">
+                    <div className="sidebar-container">
+                      <Sidebar />
+                    </div>
+                    <div className="pages-container">
+                      <Notes />
+                    </div>
+                    <div className="aside-container">
+                      {/* Additional content can go here */}
+                    </div>
+                  </div>
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
         </div>
       </Router>
-    </div>
-  )
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
